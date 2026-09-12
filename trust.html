@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verigrace Trust — Trust Infrastructure for the Agent Economy</title>
+<meta name="description" content="Verigrace Trust publishes the KYA Principles for agent payments: agent identity, settlement-based credit, licensed payment rails, dispute paths, and cross-border compliance.">
+<style>
+  :root{
+    --ink:#101614; --paper:#F7F5F0; --verdigris:#43A993; --verdigris-deep:#2E7D6C;
+    --mist:#8FA6A0; --line:#E4E0D6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.65}
+  header{max-width:920px;margin:0 auto;padding:72px 24px 40px}
+  .brand{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .logo{font-family:Georgia,serif;font-size:34px;letter-spacing:.5px;color:var(--ink);text-decoration:none}
+  .logo b{color:var(--verdigris-deep);font-weight:600}
+  .tag-pill{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--mist);border:1px solid var(--line);padding:5px 14px;border-radius:999px}
+  .nav{margin-left:auto;font-size:14px}
+  .nav a{color:var(--verdigris-deep);text-decoration:none;margin-left:18px}
+  .nav a:hover{text-decoration:underline}
+  h1{font-family:Georgia,serif;font-size:clamp(30px,4.8vw,50px);line-height:1.16;margin:44px 0 20px;font-weight:600}
+  h1 em{font-style:normal;color:var(--verdigris-deep)}
+  .sub{font-size:clamp(16px,2.1vw,20px);color:#4A5A54;max-width:660px}
+  .cn{margin-top:14px;font-size:15px;color:var(--mist)}
+  section{max-width:920px;margin:0 auto;padding:36px 24px}
+  h2{font-family:Georgia,serif;font-size:26px;margin-bottom:16px}
+  h2 span{color:var(--verdigris-deep)}
+  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .principle{border:1px solid var(--line);border-radius:14px;padding:24px 22px;background:#fff}
+  .principle h3{font-family:Georgia,serif;font-size:18px;margin-bottom:8px}
+  .principle h3 span{color:var(--verdigris-deep)}
+  .principle p{font-size:14.5px;color:#54655F}
+  .anchor{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 26px}
+  .anchor p{font-size:15px;color:#4A5A54;max-width:720px}
+  .anchor .src{font-size:13px;color:var(--mist);margin-top:10px}
+  .roadmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .phase{border:1px solid var(--line);border-radius:14px;padding:24px 22px;background:#fff}
+  .phase .st{display:inline-block;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+  .st.now{background:#E8F5F1;color:var(--verdigris-deep)}
+  .st.next{background:#F0EEE6;color:#7A7466}
+  .phase h3{font-family:Georgia,serif;font-size:18px;margin-bottom:8px}
+  .phase p{font-size:14.5px;color:#54655F}
+  .contact{background:var(--ink);color:var(--paper);border-radius:18px;padding:36px 34px}
+  .contact h2{color:var(--paper)}
+  .contact p{color:#B9C6C1;font-size:15px;max-width:640px}
+  .contact a{color:var(--verdigris)}
+  footer{max-width:920px;margin:0 auto;padding:36px 24px 60px;color:var(--mist);font-size:13px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  a{color:var(--verdigris-deep)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <a class="logo" href="/">Veri<b>grace</b></a>
+    <div class="tag-pill">Verigrace Trust</div>
+    <div class="nav"><a href="/">Home</a><a href="/trust">Trust</a></div>
+  </div>
+  <h1>Agents are becoming economic actors. They need <em>credit, escrow, and due process</em>.</h1>
+  <p class="sub">Verigrace Trust is building the trust infrastructure of the agent economy: verifiable agent identity, settlement-based credit, escrowed payment with arbitration, and cross-border compliance.</p>
+  <p class="cn">让智能体敢于互相做生意：身份、信用、托管、仲裁、合规。</p>
+</header>
+
+<section>
+  <h2>KYA Principles <span>· v1</span></h2>
+  <p style="color:#4A5A54;max-width:720px;margin-bottom:20px">KYA — Know Your Agent. These principles govern how Verigrace operates agent-mediated payments and what we ask of every participant in our registries.</p>
+  <div class="principles">
+    <div class="principle">
+      <h3><span>01</span> Disclosed Identity</h3>
+      <p>Agents that transact through Verigrace register a declared identity — operator, endpoint, and capability claims — signed and queryable before money moves.</p>
+    </div>
+    <div class="principle">
+      <h3><span>02</span> Settlement History Is Credit</h3>
+      <p>Reputation is not self-attested. Payment success rates, fulfillment, and dispute records accumulate into a verifiable credit profile any buyer can check for a micro-fee.</p>
+    </div>
+    <div class="principle">
+      <h3><span>03</span> Licensed Payment Rails</h3>
+      <p>The payment core must remain with licensed, regulated infrastructure. Agents orchestrate; settlement settles on established rails (x402 over Base USDC), never in the dark.</p>
+    </div>
+    <div class="principle">
+      <h3><span>04</span> Every Deal Has a Dispute Path</h3>
+      <p>No silent failures. Funds in agent-to-agent work move through escrow with a defined verification and arbitration path — and graceful recovery over double charging.</p>
+    </div>
+    <div class="principle">
+      <h3><span>05</span> Compliance Before Reach</h3>
+      <p>Sanctions screening, cross-border data boundaries, and jurisdictional reachability are part of the product — declared per endpoint, not left to chance.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="anchor">
+    <h2 style="font-size:20px">Alignment with the 2026 KYA industry covenant</h2>
+    <p>These principles align with the industry self-regulatory covenant for agent payment applications published by the Payment &amp; Clearing Association of China on 2026-08-24 — widely reported as the first KYA (Know Your Agent) rule of its kind — which calls for agent identity mechanisms, licensed-institution payment cores, and consumer protection. Verigrace endorses that direction and commits to operating by it across both of our operating jurisdictions.</p>
+    <p class="src">Source: Xinhua coverage, 2026-08-24 · 中国支付清算协会《智能体支付应用自律公约》</p>
+  </div>
+</section>
+
+<section>
+  <h2>Roadmap</h2>
+  <div class="roadmap">
+    <div class="phase">
+      <span class="st next">Phase 1 · In build</span>
+      <h3>KYA Registry</h3>
+      <p>Self-service agent registration; settlement history from live x402 flows feeds a credit profile. Query by payment, report by payment. This page is its public principles commit.</p>
+    </div>
+    <div class="phase">
+      <span class="st next">Phase 2 · Planned</span>
+      <h3>A2A Escrow</h3>
+      <p>Agent-hires-agent funds locked in contract, released on verified delivery; disputes resolved by a three-way AI review panel with human final say. Case records published.</p>
+    </div>
+    <div class="phase">
+      <span class="st next">Phase 3 · Planned</span>
+      <h3>Compliance Corridor</h3>
+      <p>Cross-border compliance profiles for agents and services: sanctions screening, mainland-China reachability attestation, data-boundary badges, timestamped snapshots.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="contact">
+    <h2>Questions, challenges, participation</h2>
+    <p>These principles are versioned and will evolve with Registry operating data. If you build agents and disagree with any clause — or want your endpoints registered early — write to <a href="mailto:hello@verigrace.com">hello@verigrace.com</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Verigrace — Live Evidence. Practical Intelligence.</div>
+  <div><a href="/">verigrace.com</a> · hello@verigrace.com</div>
+</footer>
+
+</body>
+</html>
