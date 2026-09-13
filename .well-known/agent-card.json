@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "id": "verigrace",
+  "name": "Verigrace",
+  "description": "Evidence-backed readiness checks and safe, pay-per-use intelligence for AI agents and x402/API publishers.",
+  "homepage": "https://verigrace.com/",
+  "trust": "https://verigrace.com/trust",
+  "contact": "mailto:hello@verigrace.com",
+  "payment": {
+    "protocol": "x402",
+    "version": 2,
+    "network": "base",
+    "asset": "USDC",
+    "settlement": "onchain"
+  },
+  "services": [
+    {
+      "id": "agent-launch-scan",
+      "type": "readiness_audit",
+      "endpoint": "https://web4shop-x402.web4shop-7023.workers.dev/api/products/agent-launch-scan",
+      "price_usd": 0.25,
+      "inputs": ["target"],
+      "outputs": ["json_report", "markdown_report", "evidence_hash"]
+    },
+    {
+      "id": "agent-launch-pack",
+      "type": "launch_readiness_pack",
+      "endpoint": "https://web4shop-x402.web4shop-7023.workers.dev/api/products/agent-launch-pack",
+      "price_usd": 9.90,
+      "inputs": ["target"],
+      "outputs": ["json_report", "markdown_report", "kya_copy", "agent_card_draft", "fix_plan"]
+    }
+  ],
+  "limitations": [
+    "Automated observation is not a legal opinion, security certification, or guarantee of reachability from every network.",
+    "Reports are time-bounded and should be re-run after deployment changes."
+  ]
+}
