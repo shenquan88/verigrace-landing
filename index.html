@@ -4,45 +4,68 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verigrace — Live Evidence. Practical Intelligence.</title>
-<meta name="description" content="Verigrace keeps AI work grounded in current evidence, practical execution, and graceful recovery.">
+<meta name="description" content="Verigrace keeps AI work grounded in current evidence, practical execution, and graceful recovery. Pay-per-use intelligence for AI agents and web operators: x402-native web search, protocol-readiness scans, site audits, and compliance checks — settled in USDC on Base.">
+<meta name="keywords" content="x402, AI agent, web search, USDC, Base, pay per use, site audit, compliance, OFAC, DNS lookup, typosquat scan">
+<link rel="canonical" href="https://verigrace.com/">
+<meta property="og:title" content="Verigrace — Live Evidence. Practical Intelligence.">
+<meta property="og:description" content="Pay-per-use, evidence-backed intelligence for AI agents and web operators — settled in USDC on Base via x402. No API key, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verigrace.com/">
+<meta name="twitter:card" content="summary">
 <style>
   :root{
     --ink:#101614; --paper:#F7F5F0; --verdigris:#43A993; --verdigris-deep:#2E7D6C;
     --mist:#8FA6A0; --line:#E4E0D6;
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{background:var(--paper);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.65}
   .serif{font-family:Georgia,"Times New Roman",serif}
-  header{max-width:920px;margin:0 auto;padding:72px 24px 40px}
+  header{max-width:960px;margin:0 auto;padding:72px 24px 36px}
   .brand{display:flex;align-items:baseline;gap:14px}
   .logo{font-family:Georgia,serif;font-size:34px;letter-spacing:.5px;color:var(--ink)}
   .logo b{color:var(--verdigris-deep);font-weight:600}
   .tag-pill{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--mist);border:1px solid var(--line);padding:5px 14px;border-radius:999px}
+  .nav{margin-left:auto;font-size:14px}
+  .nav a{color:var(--verdigris-deep);text-decoration:none;margin-left:18px}
+  .nav a:hover{text-decoration:underline}
   h1{font-family:Georgia,serif;font-size:clamp(34px,5.6vw,58px);line-height:1.14;margin:44px 0 20px;font-weight:600}
   h1 em{font-style:normal;color:var(--verdigris-deep)}
-  .sub{font-size:clamp(17px,2.2vw,21px);color:#4A5A54;max-width:640px}
+  .sub{font-size:clamp(17px,2.2vw,21px);color:#4A5A54;max-width:660px}
   .cn{margin-top:14px;font-size:15px;color:var(--mist)}
-  section{max-width:920px;margin:0 auto;padding:44px 24px}
+  section{max-width:960px;margin:0 auto;padding:40px 24px}
+  h2{font-family:Georgia,serif;font-size:27px;margin-bottom:6px}
+  h2 span{color:var(--verdigris-deep)}
+  .sec-note{color:var(--mist);font-size:14px;margin-bottom:22px;max-width:720px}
   .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
   .pillar{border:1px solid var(--line);border-radius:14px;padding:26px 24px;background:#fff}
   .pillar h3{font-family:Georgia,serif;font-size:19px;margin-bottom:8px}
   .pillar h3 span{color:var(--verdigris-deep)}
   .pillar p{font-size:14.5px;color:#54655F}
   .pillar .pain{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--mist);margin-bottom:10px}
-  .product{background:var(--ink);color:var(--paper);border-radius:18px;padding:40px 36px;margin-top:10px}
-  .product h2{font-family:Georgia,serif;font-size:26px;margin-bottom:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:22px 22px;background:#fff;display:flex;flex-direction:column;gap:8px}
+  .card h3{font-family:Georgia,serif;font-size:18px;line-height:1.3}
+  .card h3 span{color:var(--verdigris-deep)}
+  .card p{font-size:14px;color:#54655F;flex:1}
+  .card .meta{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--mist);flex-wrap:wrap}
+  .price{font-weight:700;color:var(--ink);font-size:13.5px;border:1px solid var(--line);border-radius:999px;padding:3px 11px;background:var(--paper)}
+  .try{font-size:12.5px;font-weight:600;color:var(--verdigris-deep);text-decoration:none;border:1px solid var(--verdigris-deep);border-radius:999px;padding:3px 12px}
+  .try:hover{background:var(--verdigris-deep);color:#fff}
+  .product{background:var(--ink);color:var(--paper);border-radius:18px;padding:38px 34px;margin-top:6px}
+  .product h2{color:var(--paper);font-size:26px;margin-bottom:10px}
   .product h2 span{color:var(--verdigris)}
-  .product p{color:#B9C6C1;font-size:15px;max-width:600px}
-  .facts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  .product p{color:#B9C6C1;font-size:15px;max-width:640px}
+  .facts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
   .fact{border:1px solid #2C3B36;border-radius:999px;padding:7px 16px;font-size:13px;color:#CFDCD7}
-  .cta{display:inline-block;margin-top:28px;background:var(--verdigris);color:#08110E;text-decoration:none;font-weight:600;padding:13px 30px;border-radius:10px;font-size:15px}
+  .cta{display:inline-block;margin-top:26px;background:var(--verdigris);color:#08110E;text-decoration:none;font-weight:600;padding:13px 30px;border-radius:10px;font-size:15px}
   .cta:hover{background:var(--verdigris-deep);color:#fff}
-  footer{max-width:920px;margin:0 auto;padding:36px 24px 60px;color:var(--mist);font-size:13px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .cta.ghost{margin-left:10px;background:transparent;color:var(--verdigris);border:1px solid var(--verdigris)}
+  footer{max-width:960px;margin:0 auto;padding:36px 24px 60px;color:var(--mist);font-size:13px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   a{color:var(--verdigris-deep)}
   .brand{flex-wrap:wrap}
-  .nav{margin-left:auto;font-size:14px}
-  .nav a{color:var(--verdigris-deep);text-decoration:none;margin-left:18px}
-  .nav a:hover{text-decoration:underline}
+  .catalog-note{font-size:13px;color:var(--mist);margin-top:18px}
+  .catalog-note code{background:#EFEDE4;padding:1px 6px;border-radius:5px}
 </style>
 </head>
 <body>
@@ -51,10 +74,10 @@
   <div class="brand">
     <div class="logo">Veri<b>grace</b></div>
     <div class="tag-pill">Live Evidence · Practical Intelligence</div>
-    <div class="nav"><a href="/trust">Trust</a></div>
+    <div class="nav"><a href="/trust">Trust</a> · <a href="/evidence">Live evidence</a></div>
   </div>
   <h1>AI judgment, calibrated against <em>current evidence</em>.</h1>
-  <p class="sub">Verigrace keeps AI work grounded in current evidence, practical execution, and graceful recovery — as an x402-native skill, pay-per-use safe search, and evidence-backed launch kit.</p>
+  <p class="sub">Verigrace keeps AI work grounded in current evidence, practical execution, and graceful recovery — as pay-per-use intelligence for agents and humans, settled in USDC on Base via x402. No API key, no signup, no setup.</p>
   <p class="cn">以实时事实校准 AI 判断，让工作务实推进，并优雅恢复。</p>
 </header>
 
@@ -63,36 +86,68 @@
     <div class="pillar">
       <div class="pain">Facts go stale</div>
       <h3><span>01</span> Live Evidence</h3>
-      <p>Every claim is checked against live search results — gated by policy before any payment or upstream call is made.</p>
+      <p>Every claim is checked against live data — quoted from a verified price record before any payment, gated by policy before any upstream call.</p>
     </div>
     <div class="pillar">
       <div class="pain">Execution drifts</div>
       <h3><span>02</span> Practical Execution</h3>
-      <p>File-based plans, lifecycle checkpoints, and permission boundaries keep long tasks on direction without nagging.</p>
+      <p>Read-only observations, time-bounded reports, evidence hashes, and deterministic checks keep long tasks on direction without nagging.</p>
     </div>
     <div class="pillar">
       <div class="pain">Upstreams break</div>
       <h3><span>03</span> Graceful Recovery</h3>
-      <p>Upstream interruptions are recorded once, fallbacks engage quietly, and recovery resumes without double charging.</p>
+      <p>Upstream interruptions are recorded once, fallbacks engage quietly, and retries resume without double charging.</p>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="product">
-    <h2>Verigrace Agent Launch Kit <span>· readiness evidence</span></h2>
-    <p>Launching an AI agent or x402/API endpoint? Get a time-bounded, read-only evidence report covering DNS, TLS, HTTP, security headers, x402 payment signals, public links, optional China-vantage reachability, and machine-readable trust disclosure.</p>
-    <div class="facts">
-      <div class="fact">$0.25 instant scan</div>
-      <div class="fact">$9.90 launch pack</div>
-      <div class="fact">JSON + Markdown</div>
-      <div class="fact">Evidence hash</div>
-      <div class="fact">KYA copy + Agent Card</div>
+<section id="tools">
+  <h2>Pay-per-use tools <span>· open now</span></h2>
+  <p class="sec-note">Every tool below issues a live x402 quote. Settle it in USDC on Base and the result is delivered to the same call. For a machine-readable catalog of all 50+ services, visit the <a href="https://web4shop-x402.web4shop-7023.workers.dev/">storefront</a> or the <a href="/evidence">live evidence</a> page.</p>
+  <div class="grid">
+    <div class="card">
+      <h3><span>Web</span> Intelligence</h3>
+      <p>DNS records (A/AAAA/MX/TXT/NS) over 4 independent DoH resolvers; live HTTP health with status, latency, SSL and redirects; clean URL-to-Markdown extraction.</p>
+      <div class="meta">
+        <span class="price">from $0.001</span>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/dns-lookup?domain=example.com">dns-lookup</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/health-check?url=https%3A%2F%2Fexample.com">health-check</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/url-to-markdown?url=https%3A%2F%2Fexample.com">url-to-markdown</a>
+      </div>
     </div>
-    <a class="cta" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/agent-launch-scan?target=https%3A%2F%2Fexample.com">Run a $0.25 scan →</a>
-    <a class="cta" style="margin-left:10px;background:transparent;color:var(--verdigris);border:1px solid var(--verdigris)" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/agent-launch-pack?target=https%3A%2F%2Fexample.com">Get the $9.90 pack →</a>
-    <p style="margin:18px 0 8px;color:var(--paper)"><strong>Built for agents, usable by humans.</strong> Send a target URL to <a href="mailto:hello@verigrace.com?subject=Free%20Verigrace%20snapshot&amp;body=Target%20URL%3A%20">hello@verigrace.com</a> for a complimentary 3-signal snapshot. For machine purchase, request the endpoint first; it returns a standard x402 quote with Base USDC payment instructions.</p>`r`n    <p style="margin-top:18px;font-size:12px;color:#8FA6A0">Automated observation only — not a legal opinion, security certification, or guarantee of reachability from every network.</p>
+    <div class="card">
+      <h3><span>Trust</span> &amp; Compliance</h3>
+      <p>OFAC SDN sanctions screening by address or name; SSL expiry/issuer/chain validation; security-headers scoring; email authentication (SPF/DKIM/DMARC); typosquat lookalike scan for your brand.</p>
+      <div class="meta">
+        <span class="price">from $0.15</span>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/ofac-screen?address=0x28C6c06298d514Db089934071355E5743bf21d60">ofac-screen</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/ssl-cert-check?url=https%3A%2F%2Fexample.com">ssl-cert-check</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/email-auth-check?url=https%3A%2F%2Fexample.com">email-auth-check</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/typo-scan?brand=verigrace">typo-scan</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span>x402</span> Protocol &amp; Readiness</h3>
+      <p>Full 14-point x402 endpoint compliance audit; supplier onboarding check (OFAC + email auth + SSL + headers in one report); agentic-readiness audit for AI crawlers and machine payment.</p>
+      <div class="meta">
+        <span class="price">from $0.15</span>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/x402-audit-pro?url=https%3A%2F%2Fweb4shop-x402.web4shop-7023.workers.dev%2Fapi%2Fproducts%2Fumbrella">x402-audit-pro</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/onb-supplier-check?url=https%3A%2F%2Fexample.com&name=example">onb-supplier-check</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/agentic-readiness-audit?url=https%3A%2F%2Fexample.com">agentic-readiness-audit</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span>Evidence</span> &amp; Proof</h3>
+      <p>Content-hash + timestamp proof of existence; deterministic technical SEO audit; page-change monitoring; IP / WHOIS / geo-restriction / redirect-chain intelligence.</p>
+      <div class="meta">
+        <span class="price">from $0.05</span>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/proof-of-existence">proof-of-existence</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/seo-tech-audit?url=https%3A%2F%2Fexample.com">seo-tech-audit</a>
+        <a class="try" href="https://web4shop-x402.web4shop-7023.workers.dev/api/products/whois-lookup?domain=example.com">whois-lookup</a>
+      </div>
+    </div>
   </div>
+  <p class="catalog-note">Looking for something specific? All services are listed at the <a href="https://web4shop-x402.web4shop-7023.workers.dev/">machine-readable storefront</a>. Settled results are replay-safe — a retried request never double charges.</p>
 </section>
 
 <section>
@@ -112,9 +167,8 @@
 
 <footer>
   <div>© 2026 Verigrace — Live Evidence. Practical Intelligence.</div>
-  <div><a href="/trust">Trust</a> · <a href="https://agentic.market">agentic.market</a> · <a href="https://github.com">GitHub</a> · hello@verigrace.com</div>
+  <div><a href="/trust">Trust</a> · <a href="/evidence">Live evidence</a> · <a href="https://web4shop-x402.web4shop-7023.workers.dev/">Store</a> · hello@verigrace.com</div>
 </footer>
 
 </body>
 </html>
-

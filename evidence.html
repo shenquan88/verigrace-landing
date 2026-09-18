@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Evidence — Verigrace</title>
+<meta name="description" content="Verigrace live storefront evidence: current x402 quotes observed directly from the running service, with timestamps and on-chain settlement address.">
+<link rel="canonical" href="https://verigrace.com/evidence">
+<meta property="og:title" content="Live Evidence — Verigrace">
+<meta property="og:description" content="Observed x402 quotes from the live Verigrace service, captured at query time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verigrace.com/evidence">
+<style>
+  :root{
+    --ink:#101614; --paper:#F7F5F0; --verdigris:#43A993; --verdigris-deep:#2E7D6C;
+    --mist:#8FA6A0; --line:#E4E0D6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.65}
+  header{max-width:960px;margin:0 auto;padding:72px 24px 30px}
+  .brand{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .logo{font-family:Georgia,serif;font-size:34px;letter-spacing:.5px;color:var(--ink);text-decoration:none}
+  .logo b{color:var(--verdigris-deep);font-weight:600}
+  .tag-pill{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--mist);border:1px solid var(--line);padding:5px 14px;border-radius:999px}
+  .nav{margin-left:auto;font-size:14px}
+  .nav a{color:var(--verdigris-deep);text-decoration:none;margin-left:18px}
+  .nav a:hover{text-decoration:underline}
+  h1{font-family:Georgia,serif;font-size:clamp(28px,4.6vw,44px);line-height:1.16;margin:36px 0 14px;font-weight:600}
+  h1 em{font-style:normal;color:var(--verdigris-deep)}
+  .sub{font-size:16px;color:#4A5A54;max-width:680px}
+  section{max-width:960px;margin:0 auto;padding:26px 24px}
+  h2{font-family:Georgia,serif;font-size:24px;margin-bottom:14px}
+  h2 span{color:var(--verdigris-deep)}
+  .statusline{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 6px;font-size:13.5px}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--verdigris);display:inline-block;margin-right:6px}
+  .dot.off{background:#C0392B}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--ink);color:var(--paper);font-weight:600;font-size:12.5px;letter-spacing:.4px}
+  tr:last-child td{border-bottom:none}
+  td .tag{display:inline-block;font-size:11.5px;border-radius:999px;padding:2px 9px;border:1px solid var(--line);color:var(--mist)}
+  td .tag.ok{color:var(--verdigris-deep);border-color:var(--verdigris-deep)}
+  td .tag.err{color:#C0392B;border-color:#C0392B}
+  td code{background:#EFEDE4;padding:1px 6px;border-radius:5px;font-size:12.5px;word-break:break-all}
+  a{color:var(--verdigris-deep)}
+  footer{max-width:960px;margin:0 auto;padding:30px 24px 60px;color:var(--mist);font-size:13px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .note{font-size:13px;color:var(--mist);max-width:760px;margin-top:14px}
+  .fresh{margin-left:4px;font-weight:600;color:var(--verdigris-deep)}
+  .btn{border:1px solid var(--verdigris-deep);color:var(--verdigris-deep);text-decoration:none;border-radius:999px;padding:4px 14px;font-size:13px;font-weight:600}
+  .btn:hover{background:var(--verdigris-deep);color:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <a class="logo" href="/">Veri<b>grace</b></a>
+    <div class="tag-pill">Live Evidence</div>
+    <div class="nav"><a href="/">Home</a> · <a href="/trust">Trust</a></div>
+  </div>
+  <h1>Live evidence, <em>as observed</em>.</h1>
+  <p class="sub">Quotes below are fetched directly from the running service at page load. If a row is red, the endpoint is down or under maintenance — we show that too. Observed quotes are not a guarantee of future reachability from every network.</p>
+</header>
+
+<section>
+  <div class="statusline" id="statusline">
+    <span class="dot" id="dot"></span><span id="summary">Checking live endpoints…</span>
+    <a class="btn" href="/evidence" style="margin-left:auto" title="Re-fetch now">Refresh</a>
+  </div>
+  <table id="evtable">
+    <thead>
+      <tr><th>Service</th><th>Price</th><th>Status</th><th>Quote observed</th><th>Settles to</th></tr>
+    </thead>
+    <tbody id="evbody">
+      <tr><td colspan="5" style="color:var(--mist)">Loading…</td></tr>
+    </tbody>
+  </table>
+  <p class="note" id="footnote"></p>
+</section>
+
+<footer>
+  <div>© 2026 Verigrace — Live Evidence. Practical Intelligence.</div>
+  <div><a href="/">verigrace.com</a> · <a href="/trust">Trust</a> · hello@verigrace.com</div>
+</footer>
+
+<script>
+// Live probe set — products verified to issue standard x402 v2 quotes.
+// Fetch happens from the visitor's browser: each row shows an honest
+// current observation of the payment rail. No payment is initiated.
+const PROBES = [
+  { id:"dns-lookup",        name:"DNS Lookup",                price:"$0.001", url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/dns-lookup?domain=example.com" },
+  { id:"health-check",      name:"HTTP Health Check",         price:"$0.001", url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/health-check?url=https%3A%2F%2Fexample.com" },
+  { id:"whois-lookup",      name:"WHOIS Lookup",              price:"$0.10",  url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/whois-lookup?domain=example.com" },
+  { id:"ssl-cert-check",    name:"SSL Certificate Check",     price:"$0.15",  url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/ssl-cert-check?url=https%3A%2F%2Fexample.com" },
+  { id:"security-headers-check", name:"Security Headers",     price:"$0.15",  url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/security-headers-check?url=https%3A%2F%2Fexample.com" },
+  { id:"ofac-screen",       name:"OFAC Sanctions Screen",     price:"$0.25",  url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/ofac-screen?address=0x28C6c06298d514Db089934071355E5743bf21d60" },
+  { id:"typo-scan",         name:"Brand Typosquat Scan",      price:"$0.60",  url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/typo-scan?brand=verigrace" },
+  { id:"onb-supplier-check",name:"Supplier Onboarding Check", price:"$0.75",  url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/onb-supplier-check?url=https%3A%2F%2Fexample.com&name=example" },
+  { id:"x402-audit-pro",    name:"x402 Compliance Audit",     price:"$1.00",  url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/x402-audit-pro?url=https%3A%2F%2Fweb4shop-x402.web4shop-7023.workers.dev%2Fapi%2Fproducts%2Fumbrella" },
+  { id:"proof-of-existence",name:"Proof of Existence",        price:"$0.10",  url:"https://web4shop-x402.web4shop-7023.workers.dev/api/products/proof-of-existence" }
+];
+const PAYTO = "0xd29D93F0A5E161F1F286F5Cd5Afeb718837C15E1";
+
+async function fetchQuote(probe){
+  try{
+    const ctrl = new AbortController();
+    const t = setTimeout(()=>ctrl.abort(), 15000);
+    const r = await fetch(probe.url, { signal: ctrl.signal, cache:"no-store", redirect:"follow" });
+    clearTimeout(t);
+    const ct = r.headers.get("content-type") || "";
+    let amount=null, payTo=null, matched=false;
+    if(ct.includes("application/json")){
+      const j = await r.json().catch(()=>null);
+      const accepts = j && j.accepts;
+      if(Array.isArray(accepts)){
+        matched = true;
+        amount = accepts[0] && accepts[0].amount;
+        payTo  = accepts[0] && accepts[0].payTo;
+      }
+    }
+    if(r.status === 402 && matched){
+      return { st:"ok", amount, payTo };
+    }
+    if(r.status === 402){
+      return { st:"ok", amount:null, payTo:null }; // header-form quote (older or non-json variant)
+    }
+    if(r.status === 503){
+      return { st:"down", detail:"503 · maintenance / internal validation" };
+    }
+    return { st:"err", detail: r.status + " · unexpected" };
+  }catch(e){
+    return { st:"err", detail:"network / timeout" };
+  }
+}
+
+function usdcAmt(amount){
+  if(!amount) return "";
+  const a = Number(amount);
+  if(Number.isFinite(a) && a > 0) return "$" + (a/1e6).toFixed(3);
+  return "";
+}
+
+async function main(){
+  const body = document.getElementById("evbody");
+  const dot = document.getElementById("dot");
+  const summary = document.getElementById("summary");
+  const rows = [];
+  let ok=0, bad=0;
+  // fetch in small parallel batches
+  const results = await Promise.allSettled(PROBES.map(p => fetchQuote(p)));
+  results.forEach((res, i) => {
+    const probe = PROBES[i];
+    const q = res.status === "fulfilled" ? res.value : { st:"err", detail:"fetch failed" };
+    if(q.st === "ok"){ ok++; } else { bad++; }
+    const stTxt = q.st==="ok" ? "LIVE" : q.st==="down" ? "MAINTENANCE" : "UNREACHABLE";
+    const stCls = q.st==="ok" ? "ok" : "err";
+    const priceTxt = q.st==="ok" && q.amount ? (usdcAmt(q.amount) || probe.price) : (q.st==="down" ? q.detail || "503" : q.detail || "down");
+    const payTxt = (q.st==="ok" && q.payTo) ? q.payTo.slice(0,10) + "…" + q.payTo.slice(-4) : (q.st==="ok" ? "payTo hidden" : "—");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${probe.name}<br><code>${probe.id}</code></td>
+      <td><span class="tag">${probe.price}</span></td>
+      <td><span class="tag ${stCls}">${stTxt}</span></td>
+      <td>${priceTxt}</td>
+      <td>${payTxt}</td>`;
+    body.appendChild(tr);
+  });
+  dot.className = "dot" + (bad>0 ? "" : "");
+  dot.classList.toggle("off", bad>0);
+  summary.innerHTML = `${ok}/${PROBES.length} services live · ${bad} not accepting right now`;
+  const now = new Date().toISOString();
+  document.getElementById("footnote").innerHTML =
+    `Observed <span class="fresh">${now}</span> (UTC) from the visitor's network. Settled USDC on Base goes to <code>${PAYTO}</code>. A request is a live quote only — it triggers no payment. See <a href="/trust">Trust</a> for the KYA principles behind this rail.`;
+}
+main();
+</script>
+
+</body>
+</html>
