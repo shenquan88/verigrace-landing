@@ -1,0 +1,29 @@
+# Verigrace — machine-readable entry points
+
+Verigrace provides evidence-backed web intelligence, x402/A2A protocol tooling, and practical business landing-page services.
+
+## Public paid services
+
+- **Landing Page Express ($19, 24h)** — `https://web4shop-x402.web4shop-7023.workers.dev/api/products/landing-page-express`
+- **Business Landing Page ($49, 7 days)** — `https://web4shop-x402.web4shop-7023.workers.dev/api/products/landing-page-service`
+- **A2A Vending Machine Blueprint ($4.99)** — `https://web4shop-x402.web4shop-7023.workers.dev/api/products/a2a-vending-machine-blueprint`
+- **x402 Wrap Generator ($2)** — `https://web4shop-x402.web4shop-7023.workers.dev/api/products/x402-wrap-generator`
+- **A2A-x402 Compliance Audit ($10)** — `https://web4shop-x402.web4shop-7023.workers.dev/api/products/a2a-x402-audit`
+
+All paid endpoints return an x402 v2 quote and settle USDC on Base. A quote is not a charge; payment occurs only when the buyer submits a valid payment proof.
+
+## Discovery
+
+- Homepage: https://verigrace.com/
+- Live evidence: https://verigrace.com/evidence
+- Trust principles: https://verigrace.com/trust
+- Full machine catalog: https://web4shop-x402.web4shop-7023.workers.dev/openapi.json
+- Agent card: https://verigrace.com/agent.json
+
+## Boundaries
+
+Agent Launch Scan and Pack are currently internal-validation-only. Verigrace does not describe them as public products until their release gates are complete. Automated observations are not legal opinions or security certifications.
+
+## Contact
+
+hello@verigrace.com

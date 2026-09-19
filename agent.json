@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "id": "verigrace",
+  "name": "Verigrace",
+  "description": "Evidence-backed, pay-per-use intelligence and practical launch services for AI agents, x402 publishers, and industrial businesses.",
+  "homepage": "https://verigrace.com/",
+  "trust": "https://verigrace.com/trust",
+  "evidence": "https://verigrace.com/evidence",
+  "catalog": "https://web4shop-x402.web4shop-7023.workers.dev/openapi.json",
+  "contact": "mailto:hello@verigrace.com",
+  "payment": {
+    "protocol": "x402",
+    "version": 2,
+    "network": "base",
+    "asset": "USDC",
+    "settlement": "onchain"
+  },
+  "services": [
+    {
+      "id": "landing-page-express",
+      "type": "business_landing_page",
+      "endpoint": "https://web4shop-x402.web4shop-7023.workers.dev/api/products/landing-page-express",
+      "price_usd": 19.0,
+      "delivery": "24h template version",
+      "inputs": ["business_name", "product_or_service", "target_market", "language", "contact_email"],
+      "outputs": ["html", "basic_seo", "contact_form"]
+    },
+    {
+      "id": "landing-page-service",
+      "type": "business_landing_page",
+      "endpoint": "https://web4shop-x402.web4shop-7023.workers.dev/api/products/landing-page-service",
+      "price_usd": 49.0,
+      "delivery": "7 days, one revision",
+      "inputs": ["business_name", "product_or_service", "target_market", "language", "contact_email", "seo_keywords"],
+      "outputs": ["html", "seo_keywords", "contact_form"]
+    },
+    {
+      "id": "a2a-vending-machine-blueprint",
+      "type": "agent_commerce_blueprint",
+      "endpoint": "https://web4shop-x402.web4shop-7023.workers.dev/api/products/a2a-vending-machine-blueprint",
+      "price_usd": 4.99,
+      "inputs": ["business_or_agent_description"],
+      "outputs": ["machine_readable_offer", "discovery_checklist", "payment_flow"]
+    },
+    {
+      "id": "x402-wrap-generator",
+      "type": "api_commercialization_kit",
+      "endpoint": "https://web4shop-x402.web4shop-7023.workers.dev/api/products/x402-wrap-generator",
+      "price_usd": 2.0,
+      "inputs": ["api_url", "name", "price"],
+      "outputs": ["x402_wrapper_spec", "payment_contract", "integration_steps"]
+    },
+    {
+      "id": "a2a-x402-audit",
+      "type": "protocol_readiness_audit",
+      "endpoint": "https://web4shop-x402.web4shop-7023.workers.dev/api/products/a2a-x402-audit",
+      "price_usd": 10.0,
+      "inputs": ["url"],
+      "outputs": ["json_report", "markdown_report", "fix_recommendations"]
+    }
+  ],
+  "limitations": [
+    "Agent Launch Scan and Pack are currently internal-validation-only and are not listed as public services.",
+    "Automated observation is not a legal opinion, security certification, or guarantee of reachability from every network.",
+    "Reports are time-bounded and should be re-run after deployment changes."
+  ]
+}
