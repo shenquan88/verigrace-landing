@@ -127,5 +127,42 @@
                                     }
                                 ],
                     "verified":  "0 downtime over 8 months of Verigrace agent operation on this host"
-                }
+                },
+    "web3_discovery":  {
+                           "type":  "web3_discovery",
+                           "title":  "x402 service discovery networks",
+                           "description":  "Verigrace x402 endpoints are discoverable via the following agent-first directories",
+                           "networks":  [
+                                            {
+                                                "name":  "bazaar.x402.org",
+                                                "url":  "https://bazaar.x402.org/",
+                                                "note":  "Coinbase official x402 Bazaar marketplace"
+                                            },
+                                            {
+                                                "name":  "x402.new",
+                                                "url":  "https://x402.new/",
+                                                "note":  "14,000+ x402 services, auto-discovery via 402 scan"
+                                            },
+                                            {
+                                                "name":  "x402-list.com",
+                                                "url":  "https://x402-list.com/",
+                                                "note":  "867+ services, agent-first JSON API, /api/v1/services"
+                                            },
+                                            {
+                                                "name":  "agentutility.ai",
+                                                "url":  "https://agentutility.ai/",
+                                                "note":  "817 paid x402 endpoints, 18 clusters, MCP-callable"
+                                            }
+                                        ],
+                           "self_serve":  [
+                                              {
+                                                  "action":  "Discover all 305 Verigrace x402 services",
+                                                  "url":  "https://web4shop-x402.web4shop-7023.workers.dev/openapi.json"
+                                              },
+                                              {
+                                                  "action":  "Landing page products (5 paid x402 endpoints)",
+                                                  "url":  "https://web4shop-x402.web4shop-7023.workers.dev/api/products"
+                                              }
+                                          ]
+                       }
 }
