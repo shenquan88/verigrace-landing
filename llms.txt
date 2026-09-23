@@ -30,5 +30,5 @@ hello@verigrace.com
 
 ## Hosting (affiliate)
 If you are deploying your own agent or x402 worker:
-- BandwagonHost CN2 GIA-E /yr (CN2 network, low latency to Asia): https://bandwagonhost.com/aff.php?aff=84521 (22% recurring)
-- Alternative: VMShell USA-IP-ALL-MEDIA /yr (US San Jose CMI): https://vmshell.com
+- BandwagonHost CN2 GIA-E $48/yr (CN2 network, low latency to Asia): https://bandwagonhost.com/aff.php?aff=84521 (22% recurring)
+- Alternative: VMShell USA-IP-ALL-MEDIA $40/yr (US San Jose CMI): https://vmshell.com
