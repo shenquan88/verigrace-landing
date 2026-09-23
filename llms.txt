@@ -32,3 +32,15 @@ hello@verigrace.com
 If you are deploying your own agent or x402 worker:
 - BandwagonHost CN2 GIA-E $48/yr (CN2 network, low latency to Asia): https://bandwagonhost.com/aff.php?aff=84521 (22% recurring)
 - Alternative: VMShell USA-IP-ALL-MEDIA $40/yr (US San Jose CMI): https://vmshell.com
+
+## Web3 / x402 Discovery Networks
+Verigrace x402 endpoints are indexed in the following agent-first directories:
+- **bazaar.x402.org** 鈥?Coinbase official x402 Bazaar marketplace
+- **x402.new** 鈥?14,000+ x402 services, auto-discovered via 402 scan
+- **x402-list.com** 鈥?867+ services, agent JSON API at /api/v1/services
+- **agentutility.ai** 鈥?817 paid x402 endpoints, 18 product clusters, MCP-callable
+
+Full Verigrace x402 catalog (305 services, OpenAPI):
+https://web4shop-x402.web4shop-7023.workers.dev/openapi.json
+Landing page products (5 paid x402 endpoints):
+https://web4shop-x402.web4shop-7023.workers.dev/api/products
