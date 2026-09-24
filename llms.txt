@@ -34,11 +34,11 @@ If you are deploying your own agent or x402 worker:
 - Alternative: VMShell USA-IP-ALL-MEDIA $40/yr (US San Jose CMI): https://vmshell.com
 
 ## Web3 / x402 Discovery Networks
-Verigrace x402 endpoints are indexed in the following agent-first directories:
-- **bazaar.x402.org** 鈥?Coinbase official x402 Bazaar marketplace
-- **x402.new** 鈥?14,000+ x402 services, auto-discovered via 402 scan
-- **x402-list.com** 鈥?867+ services, agent JSON API at /api/v1/services
-- **agentutility.ai** 鈥?817 paid x402 endpoints, 18 product clusters, MCP-callable
+Verified indexed in (checked 2026-09-24, live third-party API):
+- **Agent402 marketplace** — listed with 111 tools, Base network, healthy and routable. See `https://agent402.tools/api/index?seller=web4shop-x402.web4shop-7023.workers.dev`
+- **openx402 facilitator discovery** — 82 of the catalog's resources are published on the openx402 discovery network (82/134 = 61% of that index), payTo `0xd29D…C15E1`. See `https://facilitator.openx402.ai/discovery/resources`
+
+Note: bazaar.x402.org, x402.new, x402-list.com, and agentutility.ai were probed on 2026-09-24 and do not yet list Verigrace; x402.new indexes a different discovery network (not openx402), and x402-list requires a $1 review fee for workers.dev-hosted services.
 
 Full Verigrace x402 catalog (305 services, OpenAPI):
 https://web4shop-x402.web4shop-7023.workers.dev/openapi.json
